@@ -7,7 +7,30 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    
+    <header>
+        <p id="score">View High Scores</p>
+        <p id="timer" >Time:<span id="time">Value</span></p>
+    </header>
+    <main>
+        <section class="start-screen" id="start-area">
+            <h1>Welcome to Quiz Bowl</h1>
+            <h2>Try to answer all the following coding questions. Get the high score and brag to your friends.</h2>
+        </section>
+        <section class="quiz-screen">
+            <div class="questions" id="question-area">
+                
+            </div>
+            <div class="answers" id="answer-area">
+                <button type="button" class="btn" id="answer1">Click Me!</button>
+                <button type="button" class="btn" id="answer2">Click Me!</button>
+                <button type="button" class="btn" id="answer3">Click Me!</button>
+                <button type="button" class="btn" id="answer4">Click Me!</button>
+            </div>
+            <div class="correct" id="correct-area">
+                Correct or Wrong!
+            </div>
+        </section>
+    </main>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
