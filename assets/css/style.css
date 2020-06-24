@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100%;
+}
+
+header {
+    
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    font-size: 14;
+    border: 1px solid black;
+    background-color: aqua;
+}
+
+#timer, #time {
+    font-size: 1.24em;
+}
+
+.start-screen{
+    text-align: center;
+    margin: 20px 0;
+}
+.start-screen h1{
+    font-size: 2em;
+    width: 70%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.start-screen h2{
+    font-size: 1.26em;
+    padding-bottom: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+#start{
+    font-size: 120%;
+}
+
+.quiz-screen{
+    display: none;
+}
