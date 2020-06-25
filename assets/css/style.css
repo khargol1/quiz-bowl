@@ -18,6 +18,11 @@ header {
 
 /* Styling for start page */
 
+
+#timer{
+    display:none;
+}
+
 #timer, #time {
     font-size: 1.24em;
 }
@@ -25,6 +30,7 @@ header {
 .start-screen{
     text-align: center;
     margin: 20px 0;
+    padding: 10px 0;
 }
 .start-screen h1{
     font-size: 2em;
@@ -38,20 +44,43 @@ header {
     padding-bottom: 20px;
     width: 80%;
     margin: auto;
+    
 }
 
 #start{
     font-size: 120%;
+    background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    cursor: pointer; /* Pointer/hand icon */
+    padding: 10px 24px; /* Some padding */
 }
 
 
-.answers{
+.btn{
     background-color: #4CAF50; /* Green background */
     border: 1px solid green; /* Green border */
     color: white; /* White text */
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
-    width: 100; /* Set a width if needed */
+    margin: 0 auto;
     display: block; /* Make the buttons appear below each other */
+    margin-top: 10px;
 }
 
+#answer4 {
+    margin-bottom: 10px;
+}
+
+.quiz-screen{
+    background-color: cornflowerblue;
+    text-align: center;
+    border: 2px solid black;
+    display: none;
+
+}
+
+.correct{
+    text-align: left;
+    display: none;
+}
