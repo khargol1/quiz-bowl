@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: gold;
+    font-size: 2.3em;
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+    
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    margin: auto;
+
+}
+
+.btn{
+    background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    margin: 0 auto;
+    margin: 10px 0 0 5px;
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+ol{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+#message{
+    text-align: center;
+    font-size: 1.2em;
+    display: none;
+}

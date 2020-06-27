@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Top Scores</title>
+    <link rel="stylesheet" href="./assets/css/scores.css">
 </head>
 <body>
-    <h1>HELLO WORLD</h1>
+    <h1>Top Scores</h1>
+    <main>
+        <div id = "message">Sorry there are no top scores yet. Play the game to add your name.</div>
+        <ol id="high-scores">
+            
+        </ol>
+        <div class="wrapper">
+            <label for="name">Please enter your initials</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="btn-wrapper">
+            <button type="button"s class="btn" id="go-back">Go Back</button>
+            <button type="button"s class="btn" id="submit">Submit</button>
+        </div>
+    </main>
+    <script src="assets/js/scores.js"></script>
 </body>
 </html>

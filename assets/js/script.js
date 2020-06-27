@@ -5,20 +5,12 @@ var buttons = document.querySelectorAll(".btn"); //array of answer buttons gotte
 var startScreen = document.querySelector(".start-screen");
 var quizScreen = document.querySelector(".quiz-screen");
 
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 30;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
 
-//need to load an array w/ questions after working
-var questionObj ={
-    q: "sample question",
-    a1: "sample answer 1",
-    a2: "sample answer 2",
-    a3: "sample answer 3",
-    a4: "sample answer 4",
-    correct: 0
-};
+
 
 var questions =[{  q: "What does scope refer to?",
                   a1: "My mouthwash.",
@@ -123,6 +115,7 @@ function answerClick(event){
     }else{
       document.getElementById("correct-area").textContent = "Sorry thats incorrect." ;
       document.getElementById("correct-area").style.display = "block";
+      timeLeft = timeLeft - 4;
     }
     questions.shift(); //shortens the questions
     loadQuestion(questions); //loads next question
@@ -134,7 +127,8 @@ function gameOver(){
     clearInterval(timerInterval);
     score = score + timeLeft; //bonus points for time left.
     localStorage.setItem("score", score);
-    window.location.href = "scores.html" //works!
+    localStorage.setItem("new", "yes");
+    window.location.href = "scores.html"; //works!
 }
 //loads question into buttons
 function loadQuestion(questionsArray){

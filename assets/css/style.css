@@ -65,7 +65,7 @@ header {
     cursor: pointer; /* Pointer/hand icon */
     margin: 0 auto;
     display: block; /* Make the buttons appear below each other */
-    margin-top: 10px;
+    margin: 10px 0 0 5px;
 }
 
 #answer4 {
@@ -74,10 +74,18 @@ header {
 
 .quiz-screen{
     background-color: cornflowerblue;
-    text-align: center;
-    border: 2px solid black;
+    text-align: left;
+    border: 1px solid black;
+    color: white;
+    width: 50%;
+    margin: auto;
     display: none;
 
+}
+
+.questions{
+    margin: 5px 25px;
+    border-bottom: 1px dashed black;
 }
 
 .correct{
