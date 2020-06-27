@@ -66,6 +66,8 @@ header {
     margin: 0 auto;
     display: block; /* Make the buttons appear below each other */
     margin: 10px 0 0 5px;
+    width: 350px;
+    text-align: start;
 }
 
 #answer4 {
