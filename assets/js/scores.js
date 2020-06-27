@@ -32,8 +32,9 @@ function addScore(event){
     testObject.score = score;
     console.log(testObject);
 
-    let scores = makeList(testObject);
+    let scores = makeList(testObject); //this is only a 1 element list
     console.log(scores);
+    //display scores after adding
     for(var i = 0; i < scores.length; i++){
         displayList(scores[i]);
     }
@@ -48,6 +49,7 @@ function displayList(item){
     document.getElementById("high-scores").appendChild(node);
 }
 
+//status: Working
 function onLoad(){
     //figure out what to show user
     let proceed = localStorage.getItem("new");
@@ -61,61 +63,71 @@ function onLoad(){
         document.getElementById("name").style.display = "none";
         document.getElementById("submit").style.display = "none";
         document.querySelector(".wrapper").style.display = "none";
+        //and show scores. 
+        if("top-scores" in localStorage){
+            let scores = JSON.parse(localStorage.getItem('top-scores'));
+            for(var i = 0; i < scores.length; i++){
+                displayList(scores[i]);
+            }
+        }else{
+            document.getElementById("message").style.display = "block";
+        }
     }
     
     if(proceed = "yes"){
-        //We need to let a player add thier score
+        //We need to let a player add thier score before showing scores.
         localStorage.setItem("new", "no"); //on refresh or revist page prevents re entery
     }
 
     //regardless of button displays, show scores
-    if("top-scores" in localStorage){
-        let scores = JSON.parse(localStorage.getItem('top-scores'));
-        for(var i = 0; i < scores.length; i++){
-            displayList(scores[i]);
-        }
-    }else{
-        document.getElementById("message").style.display = "block";
-    }
+
 }
 
 //makes the list of top scores
 function makeList(item){
-    
+     
     console.log(item);
     let list = [];
     // check to see if its in local storage
     if ("top-scores" in localStorage) {
         list = JSON.parse(localStorage.getItem('top-scores'));
-        
+         
     } else { //its not, so make a list and push it, a list of 1 item is trivially sorted
         list = [item];
         console.log(list);
         localStorage.setItem("top-scores", JSON.stringify(list));
         return;
     }
-
+    console.log(list);
+     
     //now to sort the high score into the list
     finalList = [];
+    console.log(finalList);
     //compare to first element, if first elment is bigger, add to list
     while(list.length != 0){
+        console.log(list[0], item);
         let x = compare(list[0], item);
         finalList.push(x);
         if(x == item){break;} 
         else{
             list.shift();
         }
+        console.log(list);
     }
+
+     
     //now i have 2 sorted lists, one high one low
-    finalList.concat(list);
-    console.log(finalList);
+    console.log(finalList, typeof finalList);
+    console.log(list);
+    let realFinalList = finalList.concat(list); //you fucker
+    console.log(realFinalList);
     
     //if list.lenght > 10, trim it
-    while(finalList.length > 10){
+    while(realFinalList.length > 10){
         finalList.pop();
     }
-    
-    return finalList;
+     
+    return realFinalList;
 }
 
 //compares value for next list item
