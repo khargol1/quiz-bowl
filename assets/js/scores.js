@@ -32,7 +32,7 @@ function addScore(event){
     testObject.score = score;
     console.log(testObject);
 
-    let scores = makeList(testObject); //this is only a 1 element list
+    let scores = makeList(testObject); //returns undefined on initial page load
     console.log(scores);
     //display scores after adding
     for(var i = 0; i < scores.length; i++){
@@ -57,7 +57,7 @@ function onLoad(){
     
     if(proceed == null){
         proceed = "no";
-        return;}
+        }
     if(proceed == "no"){
         //then we are just viewing the page. only show go back
         document.getElementById("name").style.display = "none";
@@ -78,9 +78,7 @@ function onLoad(){
         //We need to let a player add thier score before showing scores.
         localStorage.setItem("new", "no"); //on refresh or revist page prevents re entery
     }
-
     //regardless of button displays, show scores
-
 }
 
 //makes the list of top scores
@@ -92,11 +90,11 @@ function makeList(item){
     if ("top-scores" in localStorage) {
         list = JSON.parse(localStorage.getItem('top-scores'));
          
-    } else { //its not, so make a list and push it, a list of 1 item is trivially sorted
+    } else { //its not, so make a list and put in local storage, a list of 1 item is trivially sorted
         list = [item];
         console.log(list);
         localStorage.setItem("top-scores", JSON.stringify(list));
-        return;
+        return list;
     }
     console.log(list);
      
@@ -113,6 +111,11 @@ function makeList(item){
             list.shift();
         }
         console.log(list);
+        //finally if this is the lowest score
+        if(list.length == 0)
+        {
+            finalList.push(item);
+        }
     }
 
      
@@ -122,16 +125,21 @@ function makeList(item){
     let realFinalList = finalList.concat(list); //you fucker
     console.log(realFinalList);
     
+    //update local storage
+    localStorage.setItem("top-scores", JSON.stringify(realFinalList));
+    
     //if list.lenght > 10, trim it
     while(realFinalList.length > 10){
         finalList.pop();
     }
-     
+    
+
     return realFinalList;
 }
 
 //compares value for next list item
 function compare(a, b){
+
     if(a.score > b.score){
         return a;
     }

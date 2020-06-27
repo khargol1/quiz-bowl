@@ -9,6 +9,7 @@ const TIME_LIMIT = 30;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
+var seconds = 0;
 
 
 
@@ -69,7 +70,7 @@ function startTimer() {
 
 function formatTime(time) {
   const minutes = Math.floor(time / 60);
-  let seconds = time % 60;
+  seconds = time % 60;
 
   if (seconds < 10) {
     seconds = `0${seconds}`;
@@ -115,7 +116,9 @@ function answerClick(event){
     }else{
       document.getElementById("correct-area").textContent = "Sorry thats incorrect." ;
       document.getElementById("correct-area").style.display = "block";
-      timeLeft = timeLeft - 4;
+      seconds -= 4;
+      timePassed += 4;
+      document.getElementById("time").innerHTML = '0:'+seconds;
     }
     questions.shift(); //shortens the questions
     loadQuestion(questions); //loads next question
