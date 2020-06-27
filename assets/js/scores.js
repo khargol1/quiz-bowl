@@ -122,7 +122,7 @@ function makeList(item){
     //now i have 2 sorted lists, one high one low
     console.log(finalList, typeof finalList);
     console.log(list);
-    let realFinalList = finalList.concat(list); //you fucker
+    let realFinalList = finalList.concat(list); 
     console.log(realFinalList);
     
     //update local storage
