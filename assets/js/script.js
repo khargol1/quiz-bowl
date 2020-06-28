@@ -59,10 +59,10 @@ function startTimer() {
       document.getElementById("time").innerHTML = formatTime(
         timeLeft
       );
-      //setCircleDasharray();
-      //setRemainingPathColor(timeLeft);
   
-      if (timeLeft === 0) {
+      if (timeLeft <= 0) {
+        timeLeft = 0;
+        timePassed = TIME_LIMIT;
         gameOver();
       }
     }, 1000);
@@ -118,7 +118,13 @@ function answerClick(event){
       document.getElementById("correct-area").style.display = "block";
       seconds -= 4;
       timePassed += 4;
-      document.getElementById("time").innerHTML = '0:'+seconds;
+      if(seconds <= 0){
+        document.getElementById("time").innerHTML = "0";
+        gameOver();
+        return;
+      }else{
+        document.getElementById("time").innerHTML = '0:'+seconds;
+      }
     }
     questions.shift(); //shortens the questions
     loadQuestion(questions); //loads next question
@@ -162,11 +168,3 @@ function gameStart(event){
     startTimer();
     loadQuestion(questions);   
 }
-
-//Pre-game sets all values and preps game.
-
-//game start load questions, adjust css to make questions appear, start timer track score
-//Use event listner to get button and validate answer. use object, 4 strings, correct choice boolean.
-
-//while game not done, timer counts down, at quiz end or timer end finish game
-//show stats screen, make text dialog box, save score and initials
